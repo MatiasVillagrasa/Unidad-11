@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="background-color: aqua;" onclick="colorBack(1)">
+        <p>ROJO</p>
+    </div>
+    <div style="background-color: blueviolet;" onclick="colorBack(2)">
+        <p>AZUL</p>
+    </div>
+    <div style="background-color: chartreuse;" onclick="colorBack(3)">
+        <p>VERDE</p>
+    </div>
+    <div style="background-color: chocolate;" onclick="colorBack(4)">
+        <p>BLANCO</p>
+    </div>
+
+    <textarea id="textarea">
+
+    </textarea>
+    <p id="cantCaracteres"></p>
+
+    <script>
+        function colorBack(x) {
+            if (x == 1) {
+                document.body.style.background = "red";
+            }
+            else if (x == 2) {
+                document.body.style.background = "blue";
+            }
+            else if (x == 3) {
+                document.body.style.background = "green";
+            }
+            else if (x == 4) {
+                document.body.style.background = "white";
+            }
+        }
+
+        var textarea = document.getElementById('textarea');
+
+        textarea.addEventListener('input', event => {
+            var currentLength = textarea.value.length;
+            document.getElementById('cantCaracteres').innerHTML = currentLength + ' caracteres.';
+        });
+
+        var alumnos = [
+            {
+                nombre: 'Juan Gomez',
+                nota: 7
+            }, {
+                nombre: 'Pedro Rodriguez',
+                nota: 4
+            }, {
+                nombre: 'Roxana García',
+                nota: 8
+            }, {
+                nombre: 'Luciano Lopez',
+                nota: 5
+            }, {
+                nombre: 'Fernanda Gimenez',
+                nota: 6
+            }, {
+                nombre: 'Florencia Martinez',
+                nota: 10
+            }, {
+                nombre: 'Raul Sanchez',
+                nota: 7
+            }, {
+                nombre: 'Sandra Figueroa',
+                nota: 8
+            }
+        ];
+
+        var pares = alumnos.filter(i => i.nota >= 7); 
+        console.log(pares);
+    </script>
+</body>
+
+</html>
